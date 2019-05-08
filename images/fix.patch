@@ -1,0 +1,30 @@
+From 97d2a5dcb71a08df6ef8b0c057c3de521371968c Mon Sep 17 00:00:00 2001
+From: Sergey Svechnikov <svechnikov66@gmail.com>
+Date: Wed, 8 May 2019 23:17:28 +0500
+Subject: [PATCH] libavfilter/vf_scale_cuda: fix frame dimensions
+
+AVHWFramesContext has aligned width and height.
+When initializing a new AVFrame, it receives these aligned values (in av_hwframe_get_buffer), which leads to incorrect scaling.
+The resulting frames are cropped either horizontally or vertically.
+As a fix we can overwrite the dimensions to original values right after av_hwframe_get_buffer.
+---
+ libavfilter/vf_scale_cuda.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/libavfilter/vf_scale_cuda.c b/libavfilter/vf_scale_cuda.c
+index c97a802..ef1bd82 100644
+--- a/libavfilter/vf_scale_cuda.c
++++ b/libavfilter/vf_scale_cuda.c
+@@ -463,6 +463,9 @@ static int cudascale_scale(AVFilterContext *ctx, AVFrame *out, AVFrame *in)
+     if (ret < 0)
+         return ret;
+ 
++    s->tmp_frame->width = s->planes_out[0].width;
++    s->tmp_frame->height = s->planes_out[0].height;
++
+     av_frame_move_ref(out, s->frame);
+     av_frame_move_ref(s->frame, s->tmp_frame);
+ 
+-- 
+2.7.4
+
