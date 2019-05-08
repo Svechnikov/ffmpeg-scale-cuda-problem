@@ -55,7 +55,7 @@ You will see, that the first frame is correct, but the consecutive frames are cr
 # <a name="running"></a>Fixing the problems
 
 `AVHWFramesContext` has [aligned width and height](https://github.com/FFmpeg/FFmpeg/blob/master/libavfilter/vf_scale_cuda.c#L162).
-When initializing a new `AVFrame`, it [receives](https://github.com/FFmpeg/FFmpeg/blob/master/libavfilter/vf_scale_cuda.c#L170) these aligned values, which leads to incorrect scaling (so, for instance, 720 becomes 736).
+When initializing a new `AVFrame`, it [receives](https://github.com/FFmpeg/FFmpeg/blob/master/libavfilter/vf_scale_cuda.c#L462) these aligned values, which leads to incorrect scaling (so, for instance, 720 becomes 736).
 When running [CUDA code](https://github.com/FFmpeg/FFmpeg/blob/master/libavfilter/vf_scale_cuda.cu#L27), this invalid value leads to invalid calculations.
 As a fix we can overwrite the dimensions to original values right after `av_hwframe_get_buffer`.
 
