@@ -10,7 +10,7 @@ Another example: when scaling down to SD (720x576) the resulting video will be c
 **Demonstration of the problem when scaling to 720x576**
 ![Demonstration of the problem](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/576/002.png)
 
-**What it should look like**
+**What it should look like (pay attention to the right border)**
 ![What it should look like](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/576-fixed/002.png)
 
 This repository is intended to prove that such problem exists and to show, how to solve it.
