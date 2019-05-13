@@ -7,6 +7,12 @@ When hardware transcoding with CUDA and using filter `scale_cuda` the output vid
 For instance, when scaling HD video (1920x1080) down to HD-ready (1280x720) the resulting video will be cropped out by 16 pixels on the bottom (here's a [screenshot with the problem](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/720/002.png) and here's [what it should look like](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/720-fixed/002.png)).
 Another example: when scaling down to SD (720x576) the resulting video will be cropped out by 16 pixels on the right ([screenshot with the problem](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/576/002.png), [what it should look like](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/576-fixed/002.png)).
 
+**Demonstration of the problem when scaling to 720x576**
+![Demonstration of the problem](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/576/002.png)
+
+**What it should look like**
+![What it should look like](https://raw.githubusercontent.com/Svechnikov/ffmpeg-scale-cuda-problem/master/screenshots/576-fixed/002.png)
+
 This repository is intended to prove that such problem exists and to show, how to solve it.
 
 # <a name="preparing"></a>Preparation steps
