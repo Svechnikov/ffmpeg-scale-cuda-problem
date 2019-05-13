@@ -52,7 +52,7 @@ You can examine each frame as a jpg image:
 
 You will see, that the first frame is correct, but the consecutive frames are cropped out.
 
-# <a name="running"></a>Fixing the problems
+# <a name="running"></a>Fixing the problem
 
 `AVHWFramesContext` has [aligned width and height](https://github.com/FFmpeg/FFmpeg/blob/master/libavfilter/vf_scale_cuda.c#L162).
 When initializing a new `AVFrame`, it [receives](https://github.com/FFmpeg/FFmpeg/blob/master/libavfilter/vf_scale_cuda.c#L462) these aligned values, which leads to incorrect scaling (so, for instance, 720 becomes 736).
@@ -63,4 +63,4 @@ I prepared a patch [images/fix.patch](https://github.com/Svechnikov/ffmpeg-scale
 
 `docker build images -f images/Dockerfile.fixed -t ffmpeg-scale-test`
 
-If you run the commands again, all the input videos will be correct.
+If you run the commands again, all the output videos will be correct.
