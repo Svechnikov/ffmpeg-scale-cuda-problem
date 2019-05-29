@@ -3,7 +3,7 @@ FFmpeg scale_cuda problem
 
 **Update**
 
-My patch was ignored because the developer responsible for the vf_scale_cuda filter missed my email to the mailing list, but another person mailed a similar patch and this time the developer hasn't missed it [https://www.mail-archive.com/ffmpeg-devel@ffmpeg.org/msg84383.html](https://www.mail-archive.com/ffmpeg-devel@ffmpeg.org/msg84383.html).
+My patch was ignored because the developer responsible for the vf_scale_cuda filter missed my email to the mailing list, but another person mailed a similar patch and this time the developer hasn't missed it, the problem is now fixed [https://www.mail-archive.com/ffmpeg-devel@ffmpeg.org/msg84383.html](https://www.mail-archive.com/ffmpeg-devel@ffmpeg.org/msg84383.html).
 
 # <a name="about"></a>Description
 
